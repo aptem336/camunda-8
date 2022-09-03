@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0j2t2ca" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.2.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.0.0">
+  <bpmn:process id="camunda-8-example-process" name="camunda-8-example-process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0k182y1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_0cdvb00">
+      <bpmn:incoming>Flow_11ltyxi</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_ServiceTask" name="ServiceTask">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="example-task-type" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0k182y1</bpmn:incoming>
+      <bpmn:outgoing>Flow_11ltyxi</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0k182y1" sourceRef="StartEvent_1" targetRef="Activity_ServiceTask" />
+    <bpmn:sequenceFlow id="Flow_11ltyxi" sourceRef="Activity_ServiceTask" targetRef="Event_0cdvb00" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="camunda-8-example-process">
+      <bpmndi:BPMNEdge id="Flow_0k182y1_di" bpmnElement="Flow_0k182y1">
+        <di:waypoint x="158" y="117" />
+        <di:waypoint x="200" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11ltyxi_di" bpmnElement="Flow_11ltyxi">
+        <di:waypoint x="300" y="117" />
+        <di:waypoint x="332" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="122" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0t3jxmu_di" bpmnElement="Activity_ServiceTask">
+        <dc:Bounds x="200" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0cdvb00_di" bpmnElement="Event_0cdvb00">
+        <dc:Bounds x="332" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
